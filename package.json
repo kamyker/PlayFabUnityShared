@@ -1,7 +1,7 @@
 {
-  "name": "com.playfab.editorextensions",
+  "name": "com.playfab.shared",
   "version": "2.69.190625",
-  "displayName": "PlayFab Editor Extensions",
-  "description": "PlayFab Editor Extensions ",
+  "displayName": "PlayFab Shared",
+  "description": "PlayFab Shared ",
   "unity": "2019.1"
 }

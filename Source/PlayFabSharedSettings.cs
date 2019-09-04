@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
@@ -36,10 +37,24 @@ namespace PlayFab
 
         public static PlayFabSharedSettings LoadFromResources()
         {
-            var settingsList = Resources.LoadAll<PlayFabSharedSettings>("PlayFabSdk");
-            if (settingsList.Length != 1)
-                throw new System.Exception("The number of PlayFabSharedSettings objects should be 1: " + settingsList.Length);
-            return settingsList[0];
+            var settingsList = Resources.LoadAll<PlayFabSharedSettings>("PlayFabSDK");
+            PlayFabSharedSettings settings = null;
+
+            if (settingsList.Length == 1)
+                settings = settingsList[0];
+            if (settings != null)
+                return settings;
+#if UNITY_EDITOR
+            settings = CreateInstance<PlayFabSharedSettings>();
+            var path = Path.Combine("Assets", "Resources", "PlayFabSDK", "PlayFabSharedSettings.asset");
+
+            UnityEditor.AssetDatabase.CreateAsset(settings, path);
+            UnityEditor.AssetDatabase.SaveAssets();
+            Debug.LogWarning("Created missing PlayFabEditorPrefsSO file");
+            return settings;
+#else
+            throw new System.Exception("The number of PlayFabSharedSettings objects should be 1: " + settingsList.Length);
+#endif
         }
     }
 

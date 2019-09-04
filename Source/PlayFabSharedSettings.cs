@@ -49,7 +49,7 @@ namespace PlayFab
             var path = Path.Combine("Assets", "Resources", "PlayFabSDK");
             Directory.CreateDirectory(path);
 
-            UnityEditor.AssetDatabase.CreateAsset(settings, Path.Combine(path + "PlayFabSharedSettings.asset"));
+            UnityEditor.AssetDatabase.CreateAsset(settings, Path.Combine(path, "PlayFabSharedSettings.asset"));
             UnityEditor.AssetDatabase.SaveAssets();
             Debug.LogWarning("Created missing PlayFabEditorPrefsSO file");
             return settings;

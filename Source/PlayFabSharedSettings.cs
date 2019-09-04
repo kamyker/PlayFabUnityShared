@@ -47,7 +47,7 @@ namespace PlayFab
 #if UNITY_EDITOR
             settings = CreateInstance<PlayFabSharedSettings>();
             var path = Path.Combine("Assets", "Resources", "PlayFabSDK", "PlayFabSharedSettings.asset");
-            Directory.CreateDirectory(path);
+            Directory.CreateDirectory(Path.Combine(Application.dataPath.Replace("Assets", ""), path));
 
             UnityEditor.AssetDatabase.CreateAsset(settings, path);
             UnityEditor.AssetDatabase.SaveAssets();

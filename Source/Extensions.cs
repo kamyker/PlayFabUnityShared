@@ -17,5 +17,18 @@ namespace PlayFab
                 Debug.LogException(e);
             }
         }
+
+        public static async void FireForgetLog(this Task task, string additionalMsgOnException)
+        {
+            try
+            {
+                await task;
+            }
+            catch (Exception e)
+            {
+                Debug.LogError(additionalMsgOnException);
+                Debug.LogException(e);
+            }
+        }
     }
 }

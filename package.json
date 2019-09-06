@@ -1,7 +1,7 @@
 {
   "name": "com.playfab.shared",
-  "version": "2.69.190625",
-  "displayName": "PlayFab Shared",
-  "description": "PlayFab Shared ",
+  "version": "3.1.0",
+  "displayName": "PlayFabShared",
+  "description": "PlayFabShared ",
   "unity": "2019.1"
 }
